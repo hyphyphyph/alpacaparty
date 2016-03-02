@@ -29,8 +29,12 @@ h1 {
     opacity: 0.75;
 }
 
-embed {
-    display: none;
+iframe {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    z-index: 200;
 }
 
 @-webkit-keyframes title {

@@ -15,7 +15,7 @@
             <div id="next-alpaca"></div>
         {{/each}}
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{music}}?autoplay=true" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100" height="100" src="https://www.youtube.com/embed/{{music}}?autoplay=true" frameborder="0" allowfullscreen></iframe>
 
         <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
         <script>
@@ -54,6 +54,11 @@
             }
 
             newColor();
+
+            $('iframe').on('click', function () {
+                $('iframe').hide();
+                return false;
+            });
         </script>
     </body>
 </html>
