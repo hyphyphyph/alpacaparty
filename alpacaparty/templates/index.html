@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <h1>Alpaca as Fuck.</h1>
+
+        {{#each alpacas}}
+            <div
+                id="alpaca"
+                style="background-image: url({{url}})">
+            </div>
+
+            <div id="next-alpaca"></div>
+        {{/each}}
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{music}}?autoplay=true" frameborder="0" allowfullscreen></iframe>
+
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <script>
+            function newAlpaca () {
+                $.ajax('/alpaca')
+                    .done(function (result) {
+                        $('#next-alpaca').css({
+                            'background-image': 'url(' + result.url + ')'
+                        });
+                    });
+                setTimeout(function () {
+                    $('#alpaca').css({
+                        'background-image': $('#next-alpaca').css('background-image')
+                    });
+                    newAlpaca();
+                }, 5000);
+            }
+
+            newAlpaca();
+
+            function newColor () {
+                var selection = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+                var color = '';
+
+                while (color.length < 6) {
+                    selection.sort(function () {
+                        return Math.random() > 0.5 ? 1 : -1;
+                    });
+                    color += selection[0];
+                }
+
+                $('h1').css({
+                    color: '#' + color
+                });
+                setTimeout(newColor, 50);
+            }
+
+            newColor();
+        </script>
+    </body>
+</html>

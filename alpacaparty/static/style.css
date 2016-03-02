@@ -1,0 +1,138 @@
+html, body {
+    background: #000;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    overflow: hidden;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 64px;
+
+    margin: -32px 0;
+
+    text-align: center;
+
+    -webkit-animation: title 7s infinite;
+    z-index: 100;
+
+    font-size: 64px;
+    color: #f00;
+    font-family: sans-serif;
+
+    opacity: 0.75;
+}
+
+embed {
+    display: none;
+}
+
+@-webkit-keyframes title {
+    0% {
+        -webkit-transform: scale(0.5, 0.5);
+    }
+
+    50% {
+        -webkit-transform: scale(1.25, 1.25);
+    }
+
+    100% {
+        -webkit-transform: scale(0.5, 0.5);
+    }
+}
+
+#next-alpaca {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-size: 10%;
+
+    z-index: 0;
+
+    -webkit-animation: next-zoom 5s infinite linear;
+    -moz-animation: next-zoom 5s infinite linear;
+}
+
+#alpaca {
+    z-index: 10;
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+
+    -webkit-animation: zoom 5s infinite linear;
+    -moz-animation: zoom 5s infinite linear;
+}
+
+@-moz-keyframes zoom {
+    0% {
+        background-size: 10%;
+        opacity: 1.0;
+    }
+
+    75% {
+        background-size: 85%;
+        opacity: 1.0;
+    }
+
+    100% {
+        background-size: 500%;
+        opacity: 0.0;
+    }
+}
+
+@-webkit-keyframes zoom {
+    0% {
+        background-size: 10%;
+        opacity: 1.0;
+    }
+
+    75% {
+        background-size: 85%;
+        opacity: 1.0;
+    }
+
+    100% {
+        background-size: 500%;
+        opacity: 0.0;
+    }
+}
+
+
+@-moz-keyframes next-zoom {
+    0% {
+        background-size: 100%;
+        opacity: 0.75;
+    }
+
+    100% {
+        background-size: 10%;
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes next-zoom {
+    0% {
+        background-size: 100%;
+        opacity: 0.75;
+    }
+
+    100% {
+        background-size: 10%;
+        opacity: 1.0;
+    }
+}
